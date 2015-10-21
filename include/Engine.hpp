@@ -26,15 +26,15 @@ private:
 	void Run();
 
 public:
-    static const int WINDOW_WIDTH=600;
-    static const int WINDOW_HEIGHT=400;
+    static const int WINDOW_WIDTH=800;
+    static const int WINDOW_HEIGHT=480;
     static const int TILE_HEIGHT=32;
     static const int TILE_WIDTH=32;
     
     static const double G = 10;
 
-    GameEngine();
-    ~GameEngine();
+    Engine();
+    ~Engine();
 
     static void Start();
     static void Stop();

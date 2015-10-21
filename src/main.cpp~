@@ -1,7 +1,0 @@
-#include "Engine.hp"
-
-int main()
-{
-    Engine::Start();
-    return 0;
-}

@@ -26,4 +26,4 @@ public:
     virtual std::string p() { return "State"; }
 };
 
-#endif // STATE_HPP_INCLUDED
+#endif //STATE_HPP_INCLUDED
