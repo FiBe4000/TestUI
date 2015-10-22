@@ -5,23 +5,27 @@
 #include <vector>
 #include <string>
 #include <iostream>
-//#include "MenuObject.h"
+#include "ActionType.hpp"
+#include "MenuObject.hpp"
 
 class Menu
 {
 private:
-    //std::vector<MenuObject> MenuObjects;
+    std::vector<MenuObject*> menuObjects;
+	
 	sf::Sprite renderingSprite;
+	sf::Sprite bgSprite;
+	
+	sf::Texture bgTexture;
 	sf::Font font;
 	
 public:
 	Menu();
+	Menu(std::string bgPath);
 	virtual ~Menu();
-
-	void AddImage(std::string imName, int x, int y);
-	void AddText(std::string txt, int txtSize, int x, int y);
-	void SetTextColor(int c1, int c2, int c3);
-	void Render();
+	
+	void addObject(MenuObject* obj);
+	void render();
 };
 
 #endif //MENU_H_INCLUDED

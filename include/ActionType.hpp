@@ -1,0 +1,9 @@
+#ifndef ACTIONTYPE_HPP_INCLUDED
+#define ACTIONTYPE_HPP_INCLUDED
+
+enum ActionType
+{
+	SCRIPT, EXIT
+};
+
+#endif //ACTIONTYPE_HPP_INCLUDED

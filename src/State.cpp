@@ -9,7 +9,7 @@ State::~State()
 {
 }
 
-void State::Process()
+void State::process()
 {	
     Engine::engine.App.pollEvent(event);
 	
@@ -25,11 +25,11 @@ void State::Process()
     
     if(event.type == sf::Event::Closed)
     {
-        Engine::Stop();
+        Engine::stop();
     }
     if(EscKeyDown && !OldEscKeyDown)
     {
-        Engine::Stop();
+        Engine::stop();
     }
     
 	OldEscKeyDown = EscKeyDown;
@@ -38,16 +38,16 @@ void State::Process()
 	OldF3KeyDown = F3KeyDown;
 }
 
-void State::Update()
+void State::update()
 {
 }
 
-void State::Render()
+void State::render()
 {
     Engine::engine.App.clear();
 }
 
-void State::ReqStateChange(int state)
+void State::reqStateChange(int state)
 {
 	switch(state)
 	{

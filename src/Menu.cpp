@@ -3,25 +3,42 @@
 
 Menu::Menu()
 {
+	if(!bgTexture.loadFromFile("gfx/kanin.png"))
+	{
+		Engine::stop();
+	}
+	bgSprite.setTexture(bgTexture);
+}
+
+
+Menu::Menu(std::string bgPath)
+{
+	if(!bgTexture.loadFromFile(bgPath))
+	{
+		Engine::stop();
+	}
+	bgSprite.setTexture(bgTexture);
 }
 
 Menu::~Menu()
 {
-
+	for(int i=0; i<menuObjects.size(); i++)
+	{
+		delete menuObjects.at(i);
+	}
 }
 
-void Menu::AddImage(std::string imName, int x, int y)
+void Menu::addObject(MenuObject* obj)
 {
+	menuObjects.push_back(obj);
 }
 
-void Menu::AddText(std::string txt, int txtSize, int x, int y)
+void Menu::render()
 {
+	//Engine::engine.App.draw(bgSprite);
+	for(int i=0; i<menuObjects.size(); i++)
+	{
+		menuObjects.at(i)->draw();
+	}
 }
 
-void Menu::SetTextColor(int c1, int c2, int c3)
-{
-}
-
-void Menu::Render()
-{
-}

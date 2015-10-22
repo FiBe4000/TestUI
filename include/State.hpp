@@ -17,11 +17,11 @@ public:
     State();
     virtual ~State();
 
-    virtual void Process();
-    virtual void Update();
-    virtual void Render();
+    virtual void process();
+    virtual void update();
+    virtual void render();
     
-    void ReqStateChange(int state);
+    void reqStateChange(int state);
     
     virtual std::string p() { return "State"; }
 };

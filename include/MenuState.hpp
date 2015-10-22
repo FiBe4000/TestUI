@@ -3,6 +3,8 @@
 
 #include "State.hpp"
 #include "Menu.hpp"
+#include "MenuObject.hpp"
+#include "ActionTextObject.hpp"
 
 class MenuState : public State
 {
@@ -13,9 +15,9 @@ public:
     MenuState();
 	virtual ~MenuState();
 
-	void Process();
-	void Update();
-	void Render();
+	void process();
+	void update();
+	void render();
 };
 
 #endif //MENUSTATE_HPP_INCLUDED

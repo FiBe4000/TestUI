@@ -7,6 +7,7 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include "State.hpp"
+#include "MenuState.hpp"
 
 #define GAME_STATE 0
 #define INTRO_STATE 1
@@ -19,11 +20,11 @@ private:
 	State* NewState;
 
     bool Running;
-	bool changeState;
+	bool ChangeState;
     
     sf::Clock frameClock;
 	
-	void Run();
+	void run();
 
 public:
     static const int WINDOW_WIDTH=800;
@@ -36,14 +37,14 @@ public:
     Engine();
     ~Engine();
 
-    static void Start();
-    static void Stop();
+    static void start();
+    static void stop();
     
-    void ChangeState(State* newState);
+    void changeState(State* newState);
 	
-	float GetFrameTime();
+	float getFrameTime();
 	
-    State& GetState() { return *state; }
+    State& getState() { return *state; }
     
     sf::RenderWindow App;
 	

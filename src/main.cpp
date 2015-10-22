@@ -2,6 +2,6 @@
 
 int main()
 {
-    Engine::Start();
+    Engine::start();
     return 0;
 }

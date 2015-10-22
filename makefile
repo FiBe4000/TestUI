@@ -7,14 +7,14 @@ ODIR = obj
 SDIR = src
 LIBS =  -lsfml-graphics -lsfml-window -lsfml-system
 
-_DEPS = Engine.hpp State.hpp MenuState.hpp Menu.hpp
+_DEPS = Engine.hpp State.hpp MenuState.hpp Menu.hpp MenuObject.hpp ActionTextObject.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o Engine.o State.o MenuState.o Menu.o
+_OBJ = main.o Engine.o State.o MenuState.o Menu.o MenuObject.o ActionTextObject.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(EXE): $(OBJ)
-	g++ -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

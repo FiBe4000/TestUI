@@ -11,8 +11,8 @@ Engine::Engine() : Running(false)
     App.setVerticalSyncEnabled(true);
     //App.ShowMouseCursor(false);
     //App.SetSize(WINDOW_WIDTH*2, WINDOW_HEIGHT*2);
-	state = new State();
-    changeState = false;
+	state = new MenuState();
+    ChangeState = false;
     std::cerr << "Window set up" << std::endl;
 }
 
@@ -21,12 +21,12 @@ Engine::~Engine()
     delete state;
 }
 
-void Engine::Start()
+void Engine::start()
 {
-    engine.Run();
+    engine.run();
 }
 
-void Engine::Run()
+void Engine::run()
 {
     Running=true;
     std::cerr << "Running main loop" << std::endl;
@@ -34,32 +34,32 @@ void Engine::Run()
     {
     	frameClock.restart();
     	
-        if(changeState)
+        if(ChangeState)
         {
         	std::cerr << "Deleting " << state->p() << std::endl;
             delete state;
             state=NewState;
-            changeState=false;
+            ChangeState=false;
         }
 
-        state->Process();
-        state->Update();
-        state->Render();
+        state->process();
+        state->update();
+        state->render();
     }
 }
 
-void Engine::Stop()
+void Engine::stop()
 {
     engine.Running=false;
 }
 
-void Engine::ChangeState(State* newState)
+void Engine::changeState(State* newState)
 {
-    changeState=true;
+    ChangeState=true;
     NewState=newState;
 }
 
-float Engine::GetFrameTime()
+float Engine::getFrameTime()
 {
 	return frameClock.getElapsedTime().asSeconds();
 }
