@@ -2,6 +2,7 @@
 #define MENUOBJECT_HPP_INCLUDED
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class MenuObject
 {
@@ -16,7 +17,7 @@ public:
 	MenuObject();
 	virtual ~MenuObject();
 	
-	virtual void draw() {}
+	virtual void draw() { ; }
 };
 
 #endif //MENUOBJECT_HPP_INCLUDED

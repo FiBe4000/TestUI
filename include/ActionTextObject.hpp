@@ -10,6 +10,7 @@ class ActionTextObject : public MenuObject
 private:
 	ActionType action;
 	sf::Text text;
+	sf::Font font;
 	int size;
 	
 public:

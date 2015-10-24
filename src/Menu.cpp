@@ -22,10 +22,6 @@ Menu::Menu(std::string bgPath)
 
 Menu::~Menu()
 {
-	for(int i=0; i<menuObjects.size(); i++)
-	{
-		delete menuObjects.at(i);
-	}
 }
 
 void Menu::addObject(MenuObject* obj)
@@ -35,7 +31,7 @@ void Menu::addObject(MenuObject* obj)
 
 void Menu::render()
 {
-	//Engine::engine.App.draw(bgSprite);
+	Engine::engine.App.draw(bgSprite);
 	for(int i=0; i<menuObjects.size(); i++)
 	{
 		menuObjects.at(i)->draw();

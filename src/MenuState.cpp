@@ -5,7 +5,10 @@ MenuState::MenuState() : StartMenu("gfx/kanin.png")
 {
 	ActionType action = SCRIPT;
 	sf::Color color(255,255,255,155);
-	StartMenu.addObject(new ActionTextObject(action, "Test", Engine::WINDOW_WIDTH/2, Engine::WINDOW_HEIGHT/2, color, 100));
+	static ActionTextObject ato(action, "Test", Engine::WINDOW_WIDTH/2, Engine::WINDOW_HEIGHT/2, sf::Color::Red, 40);
+	static ActionTextObject ato2(action, "Test", 100, 100, sf::Color::Red, 40);
+	StartMenu.addObject(&ato);
+	StartMenu.addObject(&ato2);
 }
 
 MenuState::~MenuState()

@@ -9,16 +9,16 @@ ActionTextObject::ActionTextObject(ActionType action)
 
 ActionTextObject::ActionTextObject(ActionType action, std::string text, float x, float y, sf::Color color, int size)
 {
+	if(!font.loadFromFile("data/ETHNOCEN.TTF"))
+	{
+		Engine::stop();
+	}
 	this->action = action;
 	this->text.setString(text);
-	this->x = x;
-	this->y = y;
-	this->color = color;
-	this->size = size;
-	
-	this->text.setPosition(this->x, this->y);
-	this->text.setCharacterSize(this->size);
-	this->text.setColor(this->color);
+	this->text.setFont(font);
+	this->text.setPosition(x, y);
+	this->text.setCharacterSize(size);
+	this->text.setColor(color);
 }
 
 ActionTextObject::~ActionTextObject()
