@@ -4,7 +4,7 @@
 
 Engine Engine::engine;
 
-Engine::Engine() : Running(false)
+Engine::Engine()
 {
     App.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 32), "ConsoleUI");//, sf::Style::Fullscreen);
     App.setFramerateLimit(60);
@@ -30,7 +30,7 @@ void Engine::run()
 {
     Running=true;
     std::cerr << "Running main loop" << std::endl;
-    while(Running)
+    while(engine.Running)
     {
     	frameClock.restart();
     	

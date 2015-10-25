@@ -6,18 +6,32 @@
 #include <string>
 #include <iostream>
 #include "ActionType.hpp"
+#include "Direction.hpp"
 #include "MenuObject.hpp"
+#include "MenuCursorObject.hpp"
 
 class Menu
 {
 private:
+    int currentObj;
+    
+    bool ColorHighlight;
+    
     std::vector<MenuObject*> menuObjects;
+	
+	MenuCursorObject cursor;
 	
 	sf::Sprite renderingSprite;
 	sf::Sprite bgSprite;
+	sf::Sprite buttonRowSprite;
 	
 	sf::Texture bgTexture;
+	sf::Texture buttonRowTex;
 	sf::Font font;
+	sf::Color highlightColor;
+	
+	void scaleButtonRow();
+	void alignButtons();
 	
 public:
 	Menu();
@@ -25,6 +39,10 @@ public:
 	virtual ~Menu();
 	
 	void addObject(MenuObject* obj);
+	void addButtonRowBg(std::string imPath, sf::Vector2f pos);
+	void moveCursor(Direction dir);
+	void setColorHighlight(bool state, sf::Color color);
+	void activate();
 	void render();
 };
 
